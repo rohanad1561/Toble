@@ -463,12 +463,28 @@ header {
   text-transform: uppercase;
   margin-bottom: 36px;
 }
-.f-link {
+.footar-info > a {
   color: white;
   font-size: 19px;
   font-family: "Roboto", sans-serif;
   text-transform: uppercase;
   margin-top: 13px;
+  position: relative;
+}
+
+.footar-info > a ::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  height: 1px;
+  background: white;
+  transition: 0.5s linear;
+}
+
+.footar-info > a:hover::after {
+  width: 100%;
 }
 .mail {
   color: white;
