@@ -585,9 +585,9 @@ input[type="email"]:focus {
     margin: 0 0 20px 0 !important;
     text-align: center;
   }
-  .dropdown-list {
-    top: 36%;
-  }
+ .dropdown-list {
+  top: -36%;
+ }
 }
 /* Footer Section */
 .footer-logo {
