@@ -23,32 +23,6 @@ a {
   max-width: 1344px;
 }
 
-.row {
-  display: flex;
-  flex-wrap: wrap;
-  margin: 0 -15px;
-}
-.col-6 {
-  width: calc(8.33% * 6);
-  padding: 0 15px;
-}
-.col-4 {
-  width: calc(8.33% * 4);
-  padding: 0 15px;
-}
-.col-3 {
-  width: calc(8.33% * 3);
-  padding: 0 15px;
-}
-.col-2 {
-  width: calc(8.33% * 2);
-  padding: 0 15px;
-}
-.col-5 {
-  width: calc(8.33% * 5);
-  padding: 0 15px;
-}
-
 .title1 {
   font-size: 75px;
   font-family: "Belleza", sans-serif;
@@ -151,6 +125,10 @@ header {
 .dropdown-cntn:hover ~ .dropdown-list,
 .dropdown-list:hover {
   display: block;
+}
+
+.offcanvas-header .close-btn > span {
+  display: none !important;
 }
 
 /* Banner Section--------------------------- */
@@ -549,46 +527,63 @@ input[type="email"]:focus {
 
 @media screen and (max-width: 992px) {
   /* NAvbar section */
-
   .offcanvas {
     flex-direction: column;
+    padding-top: 150px;
     background: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(20px);
-    text-align: center;
-    padding-top: 75.5px;
   }
-  .close-btn {
-    position: absolute;
+
+  .navbar-toggler-icon {
     background: none;
-    border: none;
-    left: 15px;
-    top: 25px;
-    padding: 0 10px;
-  }
-
-  .close-btn > span {
-    display: inline-block;
     height: 2px;
-    background: var(--primary-txt);
-    top: -4px;
-    right: 0;
-    left: 0;
-    position: absolute;
-    transform: rotate(45deg) translateX(6px);
+    width: 30px;
+    background-color: var(--primary-txt);
+    transition: 0.5s linear;
   }
-
-  .close-btn::after {
+  .navbar-toggler::after,
+  .navbar-toggler::before {
     content: "";
     height: 2px;
-    background: var(--primary-txt);
-    top: 4px;
-    right: 0;
-    left: 0;
+    width: 30px;
+    background-color: var(--primary-txt);
     position: absolute;
-    transform: rotate(-45deg) translateX(5px);
+    left: 0;
+    right: 0;
+  }
+  .navbar-toggler::after {
+    top: 4px;
+  }
+  .navbar-toggler::before {
+    bottom: -3px;
+  }
+
+  .navbar-toggler {
+    position: relative;
+    z-index: 9999;
+    border: 0;
+    padding: 0;
+  }
+  .navbar-toggler:focus {
+    outline: none;
+    box-shadow: none;
+  }
+
+  .navbar-toggler.activee-show .navbar-toggler-icon {
+    transform: translateX(-20px);
+    opacity: 0;
+    transition: 0.5s linear;
+    
+  }
+  .navbar-toggler.activee-show::after {
+    transform: rotate(45deg) translateX(11px);
+  }
+  .navbar-toggler.activee-show::before {
+    transform: rotate(-45deg) translateX(11px);
   }
   .nav-item {
     margin: 0 0 20px 0 !important;
+    text-align: center;
   }
   .dropdown-list {
     top: 42%;
